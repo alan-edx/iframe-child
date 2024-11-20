@@ -22,7 +22,7 @@ export const PrivateRouteComponent = ({ Route, Redirect, privateRoutes, Switch }
       {privateRoutes.map((route: any, i: number) => {
         return <Route exact={true} path={route.path} component={route.component} key={i} />;
       })}
-      <Redirect to="/dashboard" />
+      <Redirect to="/account" />
     </Switch>
   );
 };

@@ -1,19 +1,32 @@
 import jwtDecode from 'jwt-decode';
 
-import {registerIframeUser, loginIframeUser} from '../../actions/account'
-import { setEncryptedLocalStorage } from '../../common/commonFunctions';
-import { localStorageKeys } from '../../common/constants';
-import { useHistory } from "react-router";
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { loginIframeUser, registerIframeUser } from '../../actions/account';
+import { setEncryptedCookieForIframe } from '../../common/commonFunctions';
+import { cookieKeys } from '../../common/constants';
+import { setCurrentTab } from "../../store/tab/action";
 export const Dashboard = () => {
   const history = useHistory()
- const handleClick = () => {
+  const dispatch = useDispatch();
+  const handleClick = () => {
   const clientId = "2e799083-730b-40c9-ada0-d50f8a5c0357"
+  const deviceId = "Yd473Xajz7L6w7uwiL6kSokFwiBcAHuQlJd8PBPbxLrgzqxFNW11cgAqkPTPa6YEyx0qBHxJvlhIxFAxwFg3pA=="; 
+
   loginIframeUser({clientId})
       .then((res:any) => {
         const { status, message, data: { token } } = res;
-        console.log(token, "---**** token from")
-        setEncryptedLocalStorage(localStorageKeys.iframeUserToken, token);
-        validateUser(token)
+        const cookieData = {
+          token,
+          userId: clientId,
+          deviceId,
+        };
+        console.log(cookieData, "=====>>>>>")
+        setEncryptedCookieForIframe(cookieKeys.cookieUser,cookieData)
+        dispatch(setCurrentTab(2));
+        history.push("/account");
+      //  window.parent.postMessage({ type: 'SET_COOKIE', encCookieData }, 'http://localhost:3005');
+      
       })
       .catch((e) => {
         console.log(e)
@@ -24,9 +37,7 @@ export const Dashboard = () => {
   // const cookiePath = '/'; 
   // const cookieData = `${cookieName}=${cookieValue}; path=${cookiePath}; domain=${cookieDomain}; SameSite=None; secure`;
   
-  // // Set cookie via postMessage
-  // console.log(cookieData);
-  // window.parent.postMessage({ type: 'SET_COOKIE', cookieData }, 'http://localhost:3005');
+  // Set cookie via postMessage
 
   // const localStorageKey = 'localStorageKey';
   // const localStorageValue = 'localStorageValue11111';
@@ -70,6 +81,8 @@ const registerClick = () => {
         console.log(e)
       })
 };
+
+const isLoggedIn = useSelector((state:any) => state.auth.isLoggedIN);
 
 return (
   <><div>

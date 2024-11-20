@@ -9,7 +9,8 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import theme from '../../@config/Theme'
 import { getProfileUserData } from '../../actions/account'
-import { handleLabelKEY } from '../../common/commonFunctions'
+import { getEncryptedCookie, handleLabelKEY } from '../../common/commonFunctions'
+import { cookieKeys } from "../../common/constants"
 import { getImageUrl } from '../../common/handleAmazonS3Image'
 import Browse from '../../components/browse'
 import Stamp from '../../components/stamp'
@@ -20,8 +21,6 @@ import { onTabIndex } from '../../store/tabState/action'
 import { onUserDetailsUpdate } from '../../store/user/action'
 import Footer from '../common/Footer'
 import Header from '../common/Header'
-const AccountIcon = getImageUrl('account-icon.svg')
-const AddStampIcon = getImageUrl('add-stamp-icon.svg')
 const BrowseIcon = getImageUrl('browse-icon.svg')
 const ElectronicSignatureIcon = getImageUrl('signature.svg')
 const StampIcon = getImageUrl('stamp-icon.svg')
@@ -134,6 +133,12 @@ export const Account = (props) => {
   // const history = useHistory()
   const classes = useStyles()
   // let link = props.location.pathname
+  console.log("========================>>>>>>>>>>>>>>")
+
+  const cookieToken = getEncryptedCookie(cookieKeys.cookieUser);
+
+  console.log("=================<<<<<<<<<<<",cookieToken)
+
 
   const { tabindex } = useSelector((state) => state.currentTab)
   const selected_Language = useSelector(

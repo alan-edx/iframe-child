@@ -1,7 +1,6 @@
 import { Dashboard } from "../../Pages/Main/Dashboard";
 import { Account } from "../../Pages/Main/accounts";
 import { Search } from "../../Pages/Main/search";
-import { IframeDashboard } from "../../Pages/Main/IframeDashboard";
 
 
 export const privateRoutes = [
@@ -21,10 +20,3 @@ export const publicRoutes = [
     component: Dashboard
   },
 ];
-
-export const iframeRoutes = [
-  {
-    path:"/iframe-account",
-    component: IframeDashboard
-  }
-]

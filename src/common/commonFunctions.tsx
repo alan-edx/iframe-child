@@ -219,4 +219,24 @@ export const getBase64FromFile = (file: File) => {
   });
 };
 
-export { toastSuccess, toastError, getUserDetails, getCookie, handleLogout };
+export const setEncryptedCookieForIframe = (key: string, data: any) => {
+  if (data && key) {
+    const encryptedString = encryptData(data);
+    const keyName = cookieKeys.cookieInitial + "-" + key.trim();
+    const date = new Date();
+    const expiryTime = new Date(date.setTime(date.getTime() + cookieExpiresInDays * 24 * 60 * 60 * 1000)).toUTCString();
+    const cookiePath = '/';
+    const cookieDomain = 'localhost';
+    const encCookieData = `${keyName}=${encryptedString}; path=${cookiePath}; domain=${cookieDomain}; SameSite=None; Secure; expires=${expiryTime}`;
+    console.log('Sending to parent:', {
+      type: 'SET_COOKIE',
+      encCookieData: encCookieData,
+    });  
+    window.parent.postMessage({ type: 'SET_COOKIE', encCookieData }, 'http://localhost:3005');
+    // document.cookie = `${keyName}=${encryptedString};expires=${expiryTime};`;
+    // this.localStorageService.set(keyName, encryptedString);
+  }
+};
+
+export { getCookie, getUserDetails, handleLogout, toastError, toastSuccess };
+

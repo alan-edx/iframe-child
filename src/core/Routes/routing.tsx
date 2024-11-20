@@ -13,7 +13,6 @@ import { getUserInfo } from '../../actions/auth'
 import {
   getDecryptedLocalStorage,
   getEncryptedCookie,
-  handleErrors,
   setEncryptedLocalStorage,
   userProfile
 } from '../../common/commonFunctions'
@@ -26,8 +25,7 @@ import { IRootReducer } from '../../store/root-reducer'
 import { onUserDetailsUpdate } from '../../store/user/action'
 import { PrivateRouteComponent } from './PrivateRouteComponent'
 import { PublicRouteComponent } from './PublicRouteComponent'
-import { privateRoutes, publicRoutes, iframeRoutes } from './routes'
-import { IframeRouteComponent } from './IframeRouteComponent'
+import { privateRoutes, publicRoutes } from './routes'
 
 
 function RoutingComponent() {
@@ -141,19 +139,11 @@ function RoutingComponent() {
               )}
             </>
           ) : (
-            <>
             <PublicRouteComponent
                   Route={Route}
                   Redirect={Redirect}
                   publicRoutes={publicRoutes}
                   Switch={Switch} />
-                  
-                  <IframeRouteComponent
-                    Route={Route}
-                    Redirect={Redirect}
-                    iframeRoutes={iframeRoutes}
-                    Switch={Switch} />
-                    </>
           )}
         </Router>
       </Suspense>
