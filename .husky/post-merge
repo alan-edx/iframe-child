@@ -1,0 +1,29 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+
+# command to fetch changed files
+changed_files="$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD)"
+
+# check the diff between local and remote file
+# I really do not know how this grep is working but Its working if you have any idea please let me know. Thanks.😊
+
+check_run() {
+	echo "$changed_files" | grep --quiet "$1" && eval "$2"
+}
+
+# test package.lock.json changes
+# if there is any changes in the package.json fiel - like new dependency added then it will do a fresh npm install with dev dependencies.
+
+if check_run package.json
+then 
+# preety print a message
+  echo -e "\n\n\033[35m*******************************************************************************************************************\n=>>> Frontend Guys 😎\033[0
+     \033[33mpackage-lock.json\033[0m has been changed. Running \033[32mnpm install\033[0m to update your dependencies.\n\033[35m*******************************************************************************************************************\033[0m \n\n"
+  exec npm run setup:project #install dependencies
+else 
+  echo -e "\n \033[32mNo new Dependencies added, you are ready to go\033[0m 👍👍 \n"
+  exit 0;
+fi
+
+exit 0

@@ -1,0 +1,84 @@
+@import "assets/css/fontawesome.min.css";
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.loader-wrapper {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+.moduleButton button {
+  border: 0px;
+  background-color: white;
+  font-size: 24px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+p {
+  margin: 0;
+}
+
+body {
+  font-family: "Lato";
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@font-face {
+  font-family: "Lato";
+  src: local("AdmisiFont"),
+    url(./assets/fonts/Lato-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "LatoLight";
+  src: local("AdmisiFont"),
+    url(./assets/fonts/Lato-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "LatoMedium";
+  src: local("AdmisiFont"), url(./assets/fonts/Lato-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "LatoBold";
+  src: local("AdmisiFont"),
+    url(./assets/fonts/Lato-Black.ttf) format("truetype");
+}

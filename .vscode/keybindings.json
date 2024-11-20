@@ -1,0 +1,10 @@
+// Place your key bindings in this file to override the defaults
+[
+    // console in new line with prefix
+    // usage - select any variable or put your cursor then press ctrl + shift, the variable will be printed to next line with same name prefix
+    // note: please install macro plugin of vscode
+    {
+        "key": "ctrl+shift+l",
+        "command": "macros.snippetWithDescription"
+    }
+]

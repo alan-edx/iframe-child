@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="104" height="96" viewBox="0 0 104 96">
+  <g id="Group_102" data-name="Group 102" transform="translate(36 32)">
+    <path id="Path_73" data-name="Path 73" d="M48-32H-16A20,20,0,0,0-36-12V44A20,20,0,0,0-16,64H48A20,20,0,0,0,68,44V-12A20,20,0,0,0,48-32ZM8-20a4,4,0,0,1,4,4,4,4,0,0,1-4,4,4,4,0,0,1-4-4A4,4,0,0,1,8-20ZM-4-20a4,4,0,0,1,4,4,4,4,0,0,1-4,4,4,4,0,0,1-4-4A4,4,0,0,1-4-20Zm-12,0a4,4,0,0,1,4,4,4,4,0,0,1-4,4,4,4,0,0,1-4-4A4,4,0,0,1-16-20Z" fill="#073d83"/>
+    <text id="API" transform="translate(-22.521 45.695)" fill="#fff" font-size="48" font-family="Lato-Bold, Lato" font-weight="700"><tspan x="0" y="0">API</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      @font-face {
+        font-family: "Lato";
+        src: local("AdmisiFont"),
+          url(../../assets/fonts/Lato-Regular.ttf) format("truetype");
+      }
+      body {
+        font-family: "Lato";
+      }
+      p {
+        margin: 0;
+      }
+      .main {
+        width: 100%;
+        max-width: 1980px;
+        margin: auto;
+        border: 1px solid #073d83;
+        background-color: #fff;
+      }
+      .header {
+        background-color: #073d83;
+        height: 260px;
+        padding: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .title {
+        font-size: 60px;
+        color: #fff;
+        line-height: 72px;
+        margin: 70px 0 0;
+      }
+      .qr-code {
+        width: 270px;
+        height: 270px;
+        background-color: #fff;
+        overflow: hidden;
+      }
+      .table-data {
+        padding: 0 70px;
+        width: 100%;
+      }
+      .file-detail {
+        color: #0d0f12;
+        font-size: 26px;
+        font-weight: bold;
+        line-height: 50px;
+      }
+      tr.border td {
+        border-bottom: 1pt solid #073d83;
+        padding: 70px 0;
+        vertical-align: top;
+      }
+      tr td:first-child {
+        padding-right: 70px;
+      }
+      .file-name {
+        color: #0d0f12;
+        font-size: 30px;
+        font-weight: bold;
+        width: 150px;
+        text-align: center;
+      }
+      .detail {
+        font-size: 26px;
+        line-height: 50px;
+        color: #868686;
+      }
+      .value {
+        color: #0d0f12;
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 50px;
+        word-break: break-all;
+      }
+      .link {
+        line-height: 50px;
+        word-break: break-all;
+      }
+      .link a {
+        font-size: 30px;
+        color: #073d83;
+      }
+      .note {
+        padding: 30px 70px 70px;
+        color: #868686;
+        font-size: 24px;
+        line-height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="header">
+        <div>
+          <img
+            src="https://account-files-bucket.s3.ap-south-1.amazonaws.com/bstamp/assets/edexa-white-logo.png"
+            alt="logo"
+          />
+          <p class="title">Blockchain Digital Stamping Certificate</p>
+        </div>
+        <div class="qr-code">
+          <img
+            src="https://account-files-bucket.s3.ap-south-1.amazonaws.com/bstamp/assets/qr-code.png"
+            alt="qr-code"
+            width="100%"
+            height="100%"
+          />
+        </div>
+      </div>
+      <table class="table-data">
+        <tbody>
+          <tr width="100%" class="border">
+            <td width="45%">
+              <p class="file-detail">
+                The electronic document accompanying this certificate has been
+                digitally stamped by embedding its SHA256 hash imprint within
+                the blockchain public ledger maintained in the decentralized
+                Dash cryptocurrency network.
+              </p>
+            </td>
+            <td width="55%">
+              <img
+                src="https://account-files-bucket.s3.ap-south-1.amazonaws.com/bstamp/assets/pdf-logo.png"
+                alt="pdf-logo"
+                style="margin-top: 15px"
+              />
+              <p class="file-name">APO File</p>
+            </td>
+          </tr>
+          <tr width="100%" class="border">
+            <td width="45%">
+              <p class="detail">
+                The transmittal of the stamping on the blockchain was made on:
+              </p>
+              <p class="detail" style="padding-top: 50px">
+                The time shown in the blockchain may slightly vary subject to
+                the appropriate network confirmations.
+              </p>
+            </td>
+            <td width="55%">
+              <p class="value">2021-08-19 at 14:36:37 (UTC)</p>
+            </td>
+          </tr>
+          <tr width="100%" class="border">
+            <td width="45%">
+              <p class="detail">
+                This certificate is sent to the following email address as per
+                the issuer’s request:
+              </p>
+            </td>
+            <td width="55%">
+              <p class="value">fapabox@gmail.com</p>
+            </td>
+          </tr>
+          <tr width="100%" class="border">
+            <td width="45%">
+              <p class="detail">
+                The electronic document’s SHA256 hash imprint:
+              </p>
+            </td>
+            <td width="55%">
+              <p class="value">
+                8443b7c0298e0fb3c1538490de2d82166e189dbf31201d5aaef42ebf18a7ce2c
+              </p>
+            </td>
+          </tr>
+          <tr width="100%" class="border">
+            <td width="45%">
+              <p class="detail">
+                The above data block has been embedded on the blockchain using
+                the OP_RETURN feature. The particular block in which it was
+                embedded is:
+              </p>
+            </td>
+            <td width="55%">
+              <p class="value">
+                4de14b3e40a3d0921a0569967c1430ca7e1a6e6a3d31e2e8a985818acb481641
+              </p>
+            </td>
+          </tr>
+          <tr width="100%" class="border">
+            <td width="45%">
+              <p class="detail">
+                The above may be certified using any blockchain explorer. The
+                following blockchain explorers were available at the time this
+                certificate was issued:
+              </p>
+            </td>
+            <td width="55%">
+              <div class="link">
+                <a href="#">https://chainz.cryptoid.info/dash/</a>
+              </div>
+              <div class="link">
+                <a href="#">https://chainradar.com/dsh/blocks</a>
+              </div>
+              <div class="link"><a href="#">https://chain.so/dash</a></div>
+              <div class="link">
+                <a href="#">https://live.blockcypher.com/dash/</a>
+              </div>
+            </td>
+          </tr>
+          <tr width="100%" class="border">
+            <td width="45%">
+              <p class="detail">
+                The following direct links to some of the above blockchain
+                explorers may verify this particular digital stamping:
+              </p>
+            </td>
+            <td width="55%">
+              <div class="link">
+                <a href="#"
+                  >https://chain.so/tx/DASH/4de14b3e40a3d0921a0569967c1430ca7e1a6e6a3d31e2e8a985818acb481641</a
+                >
+              </div>
+              <div class="link">
+                <a href="#">
+                  https://chainz.cryptoid.info/dash/tx.dws?4de14b3e40a3d0921a0569967c1430ca7e1a6e6a3d31e2e8a985818acb481641.htm</a
+                >
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">
+        Please note that the above web links may not necessarily be online in
+        the future. In that case the stamping verification should be sought
+        through other alternative blockchain explorers using the above
+        transaction ID number.
+      </p>
+    </div>
+  </body>
+</html>

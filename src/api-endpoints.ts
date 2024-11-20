@@ -1,0 +1,22 @@
+export const apiEndPoint = {
+  getUserInfoAPI: 'app/user-info',
+  getAllAvailableApplication: 'app/available-apps',
+  hashAPI: 'app/hash',
+  downloadAPI: 'app/download',
+  credentialAPI: 'app/secret',
+  logoutAPI: 'auth/logout',
+  certificateViewAPI: 'app/account-preference',
+  generateKeyAPI: 'user-applications',
+  universeUserInfo: 'users/user-info',
+  plansAPI: 'pay/plan',
+  getProfileDetails: 'app/user-profile',
+  userPlanAPI: 'pay/user-plan',
+  billInfoAPI: 'pay/bill-info',
+  createPaymentAPI: 'pay/create-payment',
+  newsLetterAPI: 'app/subscribe-letter',
+  multiHashAPI: 'app/multi-hash',
+  adminGetLabels: 'app/get-labels',
+  adminGlobalSettings: '/app/get-settings',
+  iframeRegisterApi:'/app/register-iframe',
+  iframeLoginApi:'/app/iframe-auth'
+}

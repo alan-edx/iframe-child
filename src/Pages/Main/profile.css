@@ -1,0 +1,9 @@
+.stamped {
+    color: hsl(0deg 0% 100%);
+    float: right;
+    padding: 0px 10px;
+    font-size: 11px;
+    background: hsl(147deg 67% 47%);
+    border-radius: 11px;
+    text-transform: uppercase;
+}

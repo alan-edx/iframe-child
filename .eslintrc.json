@@ -1,0 +1,54 @@
+{
+    "extends": [
+        "react-app",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "globals": {
+        "cy": true
+    },
+    "plugins": [
+        "prettier"
+    ],
+    "rules": {
+        "semi": "warn",
+        "quotes": [
+            "warn",
+            "double"
+        ],
+        "react/prop-types": 0,
+        "react/react-in-jsx-scope": "off",
+        "react/no-unescaped-entities": "off",
+        "array-element-newline": "off",
+        "object-curly-newline": "off",
+        "object-property-newline": "off",
+        "react/jsx-key": "warn",
+        "no-useless-concat": "off",
+        "jsx-a11y/anchor-is-valid": [
+            "off",
+            {
+                "components": [
+                    "Link"
+                ],
+                "specialLink": [
+                    "to"
+                ]
+            }
+        ],
+        "react/no-unknown-property": "warn",
+        "prettier/prettier": [
+            "warn",
+            {
+                "endOfLine": "auto",
+                "printWidth": 200,
+                "tabWidth": 2,
+                "semi": true,
+                "singleQuote": false,
+                "trailingComma": "none",
+                "bracketSpacing": true,
+                "jsxBracketSameLine": true,
+                "usePrettierrc": false
+            }
+        ]
+    }
+}

@@ -1,0 +1,32 @@
+.modal {
+    overflow: hidden;
+}
+.modal-dialog.popupMetadata {
+    max-width: 80vw !important;
+}
+
+.popupMetadata .modal-body {
+    padding: 0;
+}
+
+.popupMetadata .moduleButton button {
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 30px;
+}
+.scrollCustom > div:first-of-type {
+    padding-right: 17px;
+}
+
+.xml-view {
+    width: 100%;
+    max-height: 80vh;
+    overflow: auto;
+    min-height: 50vh;
+    margin-bottom: 100px;
+}
+@media screen and (max-width: 767px) {
+    .modal-dialog.popupMetadata {
+        max-width: 100% !important;
+    }
+}

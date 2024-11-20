@@ -1,0 +1,112 @@
+.under-maintanance-wrapper {
+    height: calc(100vh - 80px);
+    background-color: #073d83;
+    border-radius: 20px;
+    background-image: url(../../assets/under-maintenance.svg);
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: center right 100px;
+}
+.under-maintanance-wrapper .under-maintenance-content {
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 100px;
+}
+
+.under-maintanance-wrapper h3 {
+    font-size: 80px;
+    font-weight: bold;
+    line-height: 82px;
+    color: white;
+    text-align: left;
+    opacity: 0.1;
+}
+@media screen and (max-width: 767px) {
+    .under-maintanance-wrapper h3 {
+        font-size: 26px;
+        line-height: 28px;
+        text-align: center;
+    }
+}
+
+.under-maintanance-wrapper p {
+    font-size: 26px;
+    color: white;
+    text-align: left;
+    opacity: 0.1;
+}
+@media screen and (max-width: 767px) {
+    .under-maintanance-wrapper p {
+        font-size: 18px;
+        text-align: center;
+    }
+}
+.under-maintanance-wrapper .underMain-Img {
+    margin-left: -60px !important;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.under-maintanance-wrapper .under-construction-image {
+    @media screen and (max-width: 1024px) {
+        max-width: 500px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .under-maintanance-wrapper .under-construction-image {
+        max-width: 250px;
+        margin-top: 60px !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .under-maintanance-wrapper {
+        background-image: none;
+    }
+    .under-maintanance-wrapper .under-maintenance-content {
+        margin: auto;
+        align-items: center;
+    }
+}
+@media screen and (max-width: 767px) {
+    .under-maintanance-wrapper {
+        min-height: calc(100vh - 144px);
+    }
+}
+
+.footer-wrapper {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding: 0px 0;
+}
+.footer-wrapper .page-link-list {
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+}
+.footer-wrapper .page-link-list li:last-child a {
+    padding-right: 0px;
+}
+.footer-wrapper .page-link-list a {
+    font-size: 14px;
+    color: #868686;
+    padding: 10px;
+    text-decoration: none;
+}
+.footer-wrapper .page-link-list a:hover {
+    color: #073d83;
+}
+.footer-wrapper .page-link-list a:focus {
+    color: #073d83;
+}
+
+.p-20 {
+    padding: 20px  20px 10px 20px!important;
+}
+
+.c-tx-ninth{
+    color: #868686;
+}

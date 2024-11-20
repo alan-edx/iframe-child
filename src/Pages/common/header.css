@@ -1,0 +1,25 @@
+.input-serach{
+    color: #4C4F53 !important;
+    font-family: "Lato";
+    font-size: 46px !important;
+    font-weight: 300 !important;
+    outline: none;
+    border-bottom: #e1e3e6;
+}
+.div-or{
+    display: flex;
+    height: 20vh !important;
+    width: 100%;
+    color: #4C4F53;
+    font-size: 20px !important;
+   
+}
+.drag-font{
+    color: #4C4F53;
+    font-size: 46px !important;
+}
+.container-demo{
+    width: 90vw;
+    height: 90vh;
+    background-color: red !important;
+}
