@@ -517,44 +517,6 @@ export default function Header() {
     history.push("/search");
   };
 
-  const getStorageData = () => {
-    // Iterate through all keys in localStorage
-    // const localStorageData = {};
-    // for (let i = 0; i < localStorage.length; i++) {
-    //     const key = localStorage.key(i);
-    //     localStorageData[key] = localStorage.getItem(key);
-    // }
-
-    // // Iterate through all keys in sessionStorage
-    // const sessionStorageData = {};
-    // for (let i = 0; i < sessionStorage.length; i++) {
-    //     const key = sessionStorage.key(i);
-    //     sessionStorageData[key] = sessionStorage.getItem(key);
-    // }
-
-    // // Log the data
-    // console.log('localStorage:', localStorageData);
-    // console.log('sessionStorage:', sessionStorageData);
-
-    // // Send data to the parent
-    // window.parent.postMessage({ 
-    //     type: 'GET_STORAGE', 
-    //     localStorage: localStorageData, 
-    //     sessionStorage: sessionStorageData 
-    // }, 'http://localhost:3005');
-    const localStorageKey = 'localStorageKey'; // Replace with your actual key
-    const sessionStorageKey = 'sessionStorageKey'; // Replace with your actual key
-  
-    // Get from localStorage
-    const localStorageValue = localStorage.getItem(localStorageKey);
-    console.log(`localStorage: { ${localStorageKey}: ${localStorageValue} }`);
-  
-    // Get from sessionStorage
-    const sessionStorageValue = sessionStorage.getItem(sessionStorageKey);
-    console.log(`sessionStorage: { ${sessionStorageKey}: ${sessionStorageValue} }`);
-};
-
-
   return (
     <MuiThemeProvider theme={theme}>
       <div className={classes.headerMain}>
@@ -562,9 +524,6 @@ export default function Header() {
         <div className={classes.rightSection}>
           {isLoggedIn && (
             <div style={{ display: "flex" }}>
-              <div onClick={getStorageData} className={classes.headerLink}>
-                Check logs
-              </div>
               <div onClick={searchToogle} className={classes.headerLink}>
                 {handleLabelKEY(selected_Language === "English" ? adminlabelsFromReducer?.EN?.validate : adminlabelsFromReducer?.DE?.validate, "Validate")}
               </div>
