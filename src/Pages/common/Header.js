@@ -520,7 +520,8 @@ export default function Header() {
   return (
     <MuiThemeProvider theme={theme}>
       <div className={classes.headerMain}>
-        <Link to="/">{bStampLogo ? <img src={bStampLogo} alt="logo" className={classes.Logo} /> : null}</Link>
+        {/* <Link to="/">{bStampLogo ? <img src={bStampLogo} alt="logo" className={classes.Logo} /> : null}</Link> */}
+        <Link to="/"><img src={"/edeXa_logo.svg"} alt="logo" className={classes.Logo} /></Link>
         <div className={classes.rightSection}>
           {isLoggedIn && (
             <div style={{ display: "flex" }}>

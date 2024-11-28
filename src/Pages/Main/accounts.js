@@ -15,12 +15,14 @@ import { getImageUrl } from '../../common/handleAmazonS3Image'
 import Browse from '../../components/browse'
 import Stamp from '../../components/stamp'
 import StampPdf from '../../components/stampPdf'
+// import { SearchComponent } from '../../components/searchComponent'
 import { setLoading } from '../../store/loader/action'
 import { setCurrentTab } from '../../store/tab/action'
 import { onTabIndex } from '../../store/tabState/action'
 import { onUserDetailsUpdate } from '../../store/user/action'
 import Footer from '../common/Footer'
 import Header from '../common/Header'
+import { Search } from './search'
 const BrowseIcon = getImageUrl('browse-icon.svg')
 const ElectronicSignatureIcon = getImageUrl('signature.svg')
 const StampIcon = getImageUrl('stamp-icon.svg')
@@ -133,13 +135,7 @@ export const Account = (props) => {
   // const history = useHistory()
   const classes = useStyles()
   // let link = props.location.pathname
-  console.log("========================>>>>>>>>>>>>>>")
-
   const cookieToken = getEncryptedCookie(cookieKeys.cookieUser);
-
-  console.log("=================<<<<<<<<<<<",cookieToken)
-
-
   const { tabindex } = useSelector((state) => state.currentTab)
   const selected_Language = useSelector(
     (state) => state.labelsReducer.lang_
@@ -283,6 +279,23 @@ export const Account = (props) => {
             }
             {...a11yProps(2)}
           />
+          <Tab
+            className={classes.tabBtn}
+            label={
+              <div className={classes.tabMain}>
+                <img src={BrowseIcon} alt="BrowseIcon" />
+                <Typography className={classes.tabTitle}>
+                  {handleLabelKEY(
+                    selected_Language === 'English'
+                      ? adminlabelsFromReducer?.EN?.browse
+                      : adminlabelsFromReducer?.DE?.browse,
+                    'Validate'
+                  )}
+                </Typography>
+              </div>
+            }
+            {...a11yProps(3)}
+          />
         </Tabs>
         <TabPanel value={value} index={0}>
           <Stamp stampSuccess={() => handleTabChange(2)} />
@@ -292,6 +305,10 @@ export const Account = (props) => {
         </TabPanel>
         <TabPanel value={value} index={2}>
           <Browse />
+        </TabPanel>
+        <TabPanel value={value} index={3}>
+          {/* <SearchComponent /> */}
+          <Search />
         </TabPanel>
       </div>
       <Footer />

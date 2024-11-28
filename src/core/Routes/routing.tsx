@@ -76,6 +76,7 @@ function RoutingComponent() {
   }
 
   useEffect(() => {
+    console.log("infi loop--->>> test")
     const cookieToken = getEncryptedCookie(cookieKeys.cookieUser)
     const token = getDecryptedLocalStorage(localStorageKeys.userToken)
     if (!cookieToken) {

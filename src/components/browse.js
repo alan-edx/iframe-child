@@ -39,6 +39,7 @@ import {
 import { debounceTimeInMilliseconds } from '../common/constants'
 import { getImageUrl } from '../common/handleAmazonS3Image'
 import { setLoading } from '../store/loader/action'
+import { useHistory } from "react-router";
 
 const CopyContent = getImageUrl('content_copy.svg')
 
@@ -359,9 +360,12 @@ const Browse = () => {
         dispatch(setLoading(false))
       })
   }
+  
+  const history = useHistory();
 
   const viewCerificate = (hash) => {
-    window.open('/' + hash, '_blank')
+    // window.open('/' + hash, '_blank')
+    history.push(`/${hash}`);
   }
 
   const handleClickClose = () => {

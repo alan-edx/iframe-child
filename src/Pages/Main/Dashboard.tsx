@@ -15,12 +15,12 @@ export const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true); // Loader state
 
   // const clientId = "2e799083-730b-40c9-ada0-d50f8a5c0357"
-  // // const clientId = "6d4ead19-b011-488c-97e4-b506bf5d6cd2"
+  // const clientId = "6d4ead19-b011-488c-97e4-b506bf5d6cd2"
+  // const clientId = "7db3cc91-7adc-484b-adcc-f6676754bff9"
   // const deviceId = "Yd473Xajz7L6w7uwiL6kSokFwiBcAHuQlJd8PBPbxLrgzqxFNW11cgAqkPTPa6YEyx0qBHxJvlhIxFAxwFg3pA=="; 
   useEffect(() => {
-    const handleMessage = (event: MessageEvent) => {
-      if (event.origin !== 'http://localhost:3000') return;
-
+    const handleMessage = (event: any) => {
+      if (event.origin !== 'http://localhost:3005') return;
       const { clientId, deviceId } = event.data;
       if (clientId && deviceId) {
         setClientId(clientId);
@@ -62,16 +62,15 @@ export const Dashboard = () => {
           userId: clientId,
           deviceId,
         };
-        console.log("success, ", token ,"----tokem ")
         setEncryptedCookieForIframe(cookieKeys.cookieUser, cookiePayload);
-        dispatch(setCurrentTab(2));
+        dispatch(setCurrentTab(0));
         history.push("/account");
       })
       .catch((e) => {
         console.error("Login failed:", e);
       })
       .finally(() => setIsLoading(false)); // Stop the loader
-  }, []);
+  }, [clientId, deviceId, history, dispatch]);
 
 const handleClick = () => {
   loginIframeUser({clientId})
@@ -92,7 +91,7 @@ const handleClick = () => {
 };
 
 const registerClick = () => {
-  const email = 'a.devasia@edexa.team'
+  const email = 'alan@yopmail.com'
   registerIframeUser({email})
       .then((res:any) => {
       console.log(res)
