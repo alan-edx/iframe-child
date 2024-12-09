@@ -36,41 +36,54 @@ export const Dashboard = () => {
   }, []);
   useEffect(() => {
     if (!clientId || !deviceId) return;
-    // Check if the cookie is already set
+
+    setIsLoading(true);
+
     const cookieData = getEncryptedCookie(cookieKeys.cookieUser);
 
     if (cookieData) {
       try {
-        const decodedToken:any = jwtDecode(cookieData.token);
 
-        // Check if token is valid (not expired)
-        if (decodedToken.exp && decodedToken.exp * 1000 > Date.now()) {
-          history.push("/account"); // Redirect to /account
-          return;
-        }
+        console.log("Removing existing cookie:", cookieData);
+
+        setEncryptedCookieForIframe(cookieKeys.cookieUser, null);
+
+        performLogin();
       } catch (error) {
-        console.error("Invalid or expired token:", error);
+        console.error("Invalid or expired token, removing cookie:", error);
+        setEncryptedCookieForIframe(cookieKeys.cookieUser, null); 
+        performLogin(); 
       }
+    } else {
+      performLogin();
     }
+  }, [clientId, deviceId, history, dispatch]);
 
-    // If no valid cookie, perform login
+  const performLogin = () => {
     loginIframeUser({ clientId })
       .then((res: any) => {
         const { status, message, data: { token } } = res;
-        const cookiePayload = {
-          token,
-          userId: clientId,
-          deviceId,
-        };
-        setEncryptedCookieForIframe(cookieKeys.cookieUser, cookiePayload);
-        dispatch(setCurrentTab(0));
-        history.push("/account");
+
+        if (status === 200) {
+          const cookiePayload = {
+            token,
+            userId: clientId,
+            deviceId,
+          };
+          setEncryptedCookieForIframe(cookieKeys.cookieUser, cookiePayload);
+          dispatch(setCurrentTab(0));
+          history.push("/account");
+        } else {
+          console.error("Login response indicates failure:", message);
+        }
       })
       .catch((e) => {
         console.error("Login failed:", e);
       })
-      .finally(() => setIsLoading(false)); // Stop the loader
-  }, [clientId, deviceId, history, dispatch]);
+      .finally(() => {
+        setIsLoading(false); 
+      });
+  };
 
 const handleClick = () => {
   loginIframeUser({clientId})
@@ -91,7 +104,7 @@ const handleClick = () => {
 };
 
 const registerClick = () => {
-  const email = 'alan@yopmail.com'
+  const email = 'aland@yopmail.com'
   registerIframeUser({email})
       .then((res:any) => {
       console.log(res)

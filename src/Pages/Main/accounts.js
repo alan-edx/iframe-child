@@ -279,7 +279,7 @@ export const Account = (props) => {
             }
             {...a11yProps(2)}
           />
-          <Tab
+          {/* <Tab
             className={classes.tabBtn}
             label={
               <div className={classes.tabMain}>
@@ -295,7 +295,7 @@ export const Account = (props) => {
               </div>
             }
             {...a11yProps(3)}
-          />
+          /> */}
         </Tabs>
         <TabPanel value={value} index={0}>
           <Stamp stampSuccess={() => handleTabChange(2)} />
@@ -306,10 +306,9 @@ export const Account = (props) => {
         <TabPanel value={value} index={2}>
           <Browse />
         </TabPanel>
-        <TabPanel value={value} index={3}>
-          {/* <SearchComponent /> */}
+        {/* <TabPanel value={value} index={3}>
           <Search />
-        </TabPanel>
+        </TabPanel> */}
       </div>
       <Footer />
     </MuiThemeProvider>

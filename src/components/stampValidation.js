@@ -367,7 +367,8 @@ export const StampValidation = ({
   }
 
   const viewCerificate = (hash) => {
-    window.open('/' + `hash_${hash}`, '_blank')
+    // window.open('/' + `hash_${hash}`, '_blank')
+    history.push(`/hash_${hash}`);
   }
 
   const classes = useStyles()
@@ -829,7 +830,7 @@ export const StampValidation = ({
           formData.append('savePreference', 1)
         }
         formData.append('type', '1')
-
+        formData.append('isPrivate', meta.isPrivate)
         if (
           userData.watermark === 1 &&
           (meta.file.type === 'application/pdf' ||
